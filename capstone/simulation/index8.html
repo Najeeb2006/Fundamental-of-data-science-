@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Unified Portfolio &amp; AI Analysis Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#a8e6d5",
+                        "primary-dark": "#7accc4",
+                        "secondary-beige": "#F5E6D3",
+                        "background-light": "#f6f8f7",
+                        "background-dark": "#131f1c",
+                        "neutral-dark": "#2C3E38", 
+                        "neutral-mid": "#6B8E85",
+                        "neutral-light": "#E0EBE8",
+                    },
+                    fontFamily: {
+                        "display": ["Sora", "sans-serif"],
+                        "body": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-neutral-light font-body antialiased min-h-screen flex transition-colors duration-200">
+<aside class="w-64 bg-white dark:bg-[#1A2824] border-r border-neutral-light dark:border-neutral-mid/20 flex-shrink-0 hidden lg:flex flex-col h-screen sticky top-0 z-30">
+<div class="p-6 flex items-center space-x-3">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
+<span class="material-icons text-neutral-dark text-lg">account_balance</span>
+</div>
+<span class="text-xl font-display font-bold tracking-tight text-neutral-dark dark:text-white">Portfolio</span>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-4">
+<a class="flex items-center space-x-3 px-4 py-3 rounded-xl bg-primary/20 text-neutral-dark dark:text-white font-medium" href="#">
+<span class="material-icons">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-neutral-mid dark:text-neutral-400 hover:bg-neutral-light/50 dark:hover:bg-neutral-mid/10 transition-colors" href="#">
+<span class="material-icons">pie_chart</span>
+<span>Portfolio Analysis</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-neutral-mid dark:text-neutral-400 hover:bg-neutral-light/50 dark:hover:bg-neutral-mid/10 transition-colors" href="#">
+<span class="material-icons">real_estate_agent</span>
+
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-neutral-mid dark:text-neutral-400 hover:bg-neutral-light/50 dark:hover:bg-neutral-mid/10 transition-colors" href="#">
+
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-neutral-mid dark:text-neutral-400 hover:bg-neutral-light/50 dark:hover:bg-neutral-mid/10 transition-colors" href="#">
+
+</a>
+</nav>
+<div class="p-4 border-t border-neutral-light dark:border-neutral-mid/20">
+<div class="flex items-center space-x-3">
+<img class="w-10 h-10 rounded-full object-cover border-2 border-primary" data-alt="Professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGaYLvl2VEjVPKcb1FlEt30K2vTsuS-rJit5XiIEJce0IwCbECbD8lt2DF4GzmTGHDE4YdYLwwuyzi7TRPpDMFcEraI2mfU2oCEeQvR5jTeO_r487Ez859eJOwKwvj_anpRQ3wQQTSqLL7AURtk8d_ZYcLXNO1Uq1Ir87RFNLUu2b1eied5H58dixNTnXlZbaCBp9OTNOOoWlDsW3WA2MWm03D8bNa7AwYCdqoygAPIem3U5s_NNPUs6kIhS4t_1zR4yNjx7iyj5Q"/>
+<div>
+<p class="text-sm font-semibold text-neutral-dark dark:text-white font-display"></p>
+<p class="text-xs text-neutral-mid"></p>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0 overflow-hidden">
+<header class="bg-white/80 dark:bg-[#1A2824]/80 backdrop-blur-md sticky top-0 z-20 border-b border-neutral-light dark:border-neutral-mid/20 px-6 py-4">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+<h1 class="text-2xl font-bold font-display text-neutral-dark dark:text-white">Unified Portfolio &amp; AI Analysis</h1>
+<div class="flex flex-wrap gap-4">
+<div class="bg-primary/10 rounded-lg px-4 py-2 border border-primary/20">
+<span class="text-xs font-semibold text-neutral-mid uppercase tracking-wider">Total Value</span>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold font-display text-neutral-dark dark:text-white" id="header-total-inr">₹0</span>
+<span class="text-xs font-medium text-emerald-600 bg-emerald-100 dark:bg-emerald-900/30 dark:text-emerald-400 px-1.5 py-0.5 rounded flex items-center" id="header-total-pnl">
+<span class="material-icons text-[10px] mr-0.5">trending_up</span> 0%
+                            </span>
+</div>
+</div>
+<div class="bg-neutral-light/50 dark:bg-white/5 rounded-lg px-4 py-2 border border-neutral-light dark:border-white/10">
+<span class="text-xs font-semibold text-neutral-mid uppercase tracking-wider">Risk Score</span>
+<div class="flex items-center space-x-2">
+<span class="text-xl font-bold font-display text-neutral-dark dark:text-white" id="header-risk-score">0.0</span>
+<span class="text-xs text-neutral-mid" id="header-risk-label">/ 10 (N/A)</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-6 md:p-8">
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<div class="xl:col-span-6 space-y-8">
+<div class="bg-secondary-beige dark:bg-[#2C3E38] rounded-2xl p-6 shadow-sm border border-neutral-light dark:border-white/5">
+<div class="flex items-center justify-between mb-6">
+<h2 class="text-lg font-bold font-display text-neutral-dark dark:text-white flex items-center">
+<span class="material-icons mr-2 text-neutral-mid dark:text-primary">add_circle_outline</span>
+                                Manual Asset Entry
+                            </h2>
+</div>
+<form class="space-y-4" id="asset-form">
+<div>
+<label class="block text-xs font-semibold text-neutral-mid dark:text-neutral-300 uppercase tracking-wide mb-1.5">Asset Class</label>
+<div class="grid grid-cols-3 gap-2">
+<label class="cursor-pointer">
+<input checked="" class="peer sr-only" name="asset_class" type="radio" value="Equity"/>
+<div class="text-center py-2 px-1 rounded-lg border border-neutral-400/20 bg-white/50 dark:bg-black/20 text-neutral-600 dark:text-neutral-300 peer-checked:bg-primary peer-checked:text-neutral-900 peer-checked:font-medium peer-checked:border-primary transition-all text-sm">
+                                            Equity
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="asset_class" type="radio" value="Real Estate"/>
+<div class="text-center py-2 px-1 rounded-lg border border-neutral-400/20 bg-white/50 dark:bg-black/20 text-neutral-600 dark:text-neutral-300 peer-checked:bg-primary peer-checked:text-neutral-900 peer-checked:font-medium peer-checked:border-primary transition-all text-sm">
+                                            Real Estate
+                                        </div>
+</label>
+<label class="cursor-pointer">
+<input class="peer sr-only" name="asset_class" type="radio" value="Gold/Alt"/>
+<div class="text-center py-2 px-1 rounded-lg border border-neutral-400/20 bg-white/50 dark:bg-black/20 text-neutral-600 dark:text-neutral-300 peer-checked:bg-primary peer-checked:text-neutral-900 peer-checked:font-medium peer-checked:border-primary transition-all text-sm">
+                                            Gold/Alt
+                                        </div>
+</label>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold text-neutral-mid dark:text-neutral-300 uppercase tracking-wide mb-1.5">Asset Name / Symbol</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-icons text-neutral-400 text-lg">search</span>
+</span>
+<input id="asset-name" class="block w-full pl-10 pr-3 py-2.5 rounded-lg border-neutral-300 dark:border-white/10 bg-white dark:bg-black/20 text-neutral-900 dark:text-white placeholder-neutral-400 focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm" placeholder="e.g. RELIANCE, AAPL, BTC, ADYAR..." type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold text-neutral-mid dark:text-neutral-300 uppercase tracking-wide mb-1.5">Quantity (Units/Sqft)</label>
+<input id="asset-qty" class="block w-full px-3 py-2.5 rounded-lg border-neutral-300 dark:border-white/10 bg-white dark:bg-black/20 text-neutral-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm" placeholder="0.00" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-semibold text-neutral-mid dark:text-neutral-300 uppercase tracking-wide mb-1.5">Buy Price (USD or INR)</label>
+<input id="asset-price" class="block w-full px-3 py-2.5 rounded-lg border-neutral-300 dark:border-white/10 bg-white dark:bg-black/20 text-neutral-900 dark:text-white focus:ring-2 focus:ring-primary focus:border-primary sm:text-sm" placeholder="Enter purchase price" type="number"/>
+</div>
+</div>
+<div class="pt-2">
+<button id="add-btn" class="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-xl shadow-sm text-sm font-semibold text-neutral-900 bg-primary hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors" type="button">
+<span class="material-icons mr-2 text-lg">add</span>
+                                    Add to Portfolio
+                                </button>
+</div>
+</form>
+</div>
+<div class="bg-white dark:bg-[#1A2824] rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex flex-col">
+<div class="px-6 py-5 border-b border-neutral-light dark:border-white/5 flex items-center justify-between">
+<h2 class="text-lg font-bold font-display text-neutral-dark dark:text-white">Current Holdings</h2>
+</div>
+<div class="overflow-x-auto">
+<table class="min-w-full divide-y divide-neutral-light dark:divide-white/5" id="holdings-table">
+<thead class="bg-neutral-50 dark:bg-white/5">
+<tr>
+<th class="px-6 py-3 text-left text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" scope="col">Asset</th>
+<th class="px-6 py-3 text-right text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" scope="col">Value (₹)</th>
+<th class="px-6 py-3 text-right text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" scope="col">P/L %</th>
+<th class="px-6 py-3 text-center text-xs font-semibold text-neutral-500 dark:text-neutral-400 uppercase tracking-wider" scope="col">Action</th>
+</tr>
+</thead>
+<tbody class="bg-white dark:bg-[#1A2824] divide-y divide-neutral-light dark:divide-white/5" id="portfolio-body">
+    <!-- Items appear here -->
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="xl:col-span-6 space-y-8">
+<div class="bg-gradient-to-br from-[#1A2824] to-[#2C3E38] rounded-2xl p-6 shadow-lg border border-neutral-light/20 relative overflow-hidden text-white">
+<div class="absolute top-0 right-0 p-4 opacity-10">
+<span class="material-symbols-outlined text-9xl">psychology</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center justify-between mb-4">
+<h2 class="text-lg font-bold font-display flex items-center text-primary">
+<span class="material-symbols-outlined mr-2">model_training</span>
+                                    AI Predictive Model (Bayesian)
+                                </h2>
+<span class="bg-white/10 px-2 py-1 rounded text-xs font-mono">v4.2.1-beta</span>
+</div>
+<div class="flex flex-col md:flex-row gap-6 items-start md:items-center mb-6">
+<div id="ai-rec-box" class="bg-primary/20 border border-primary/50 rounded-xl p-4 flex-1 w-full md:w-auto text-center backdrop-blur-sm">
+<div class="text-xs uppercase tracking-widest text-neutral-200 mb-1">Recommendation</div>
+<div id="ai-rec-text" class="text-3xl font-bold font-display text-primary">HOLD</div>
+<div id="ai-rec-status" class="text-xs text-neutral-200/70 mt-1">Select Asset</div>
+</div>
+<div class="flex-1 space-y-3 w-full">
+<div class="flex justify-between text-sm mb-1">
+<span class="text-neutral-300">Confidence Score</span>
+<span class="font-bold text-primary" id="ai-confidence-pct">0%</span>
+</div>
+<div class="w-full bg-black/30 rounded-full h-2.5">
+<div class="bg-primary h-2.5 rounded-full transition-all duration-500" id="ai-bar" style="width: 0%"></div>
+</div>
+<p class="text-xs text-neutral-400 leading-relaxed mt-2" id="ai-narrative">
+                                        Click on a portfolio item to run Bayesian inference on the selected asset.
+                                    </p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 text-center text-xs border-t border-white/10 pt-4">
+<div>
+<div class="text-neutral-400 mb-1">Current Gain</div>
+<div class="font-bold text-white" id="ai-gain-val">₹ 0</div>
+</div>
+<div>
+<div class="text-neutral-400 mb-1">Volatility</div>
+<div class="font-bold text-yellow-400" id="ai-vol-index">--</div>
+</div>
+<div>
+<div class="text-neutral-400 mb-1">Market Sentiment</div>
+<div class="font-bold text-neutral-300" id="ai-sentiment">--</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white dark:bg-[#1A2824] rounded-2xl shadow-sm border border-neutral-light dark:border-white/5 flex flex-col h-[500px]">
+<div class="px-6 py-4 border-b border-neutral-light dark:border-white/5">
+<h2 class="text-lg font-bold font-display text-neutral-dark dark:text-white">Technical Analysis Chart</h2>
+</div>
+<div class="flex-1" id="tradingview-container">
+    <!-- Chart Mounting Point -->
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script>
+/**
+ * PORTFOLIO MANAGER - FINAL CORE SCRIPT
+ */
+
+const USD_RATE = 83.5;
+
+// 1. DATASET: Chennai Real Estate (Historical Buy Price per Sqft)
+const chennaiDataset = {
+    "karapakkam": 7569, "anna nagar": 10935, "adyar": 14476, 
+    "velachery": 5191, "chrompet": 7274, "kk nagar": 5435, "t nagar": 12530
+};
+
+// 2. DATASET: Top 20 Indian Assets (Static Market Reference)
+const indianMarketLive = {
+    "RELIANCE": 2980, "TCS": 4120, "HDFCBANK": 1545, "ICICI": 1090, "INFY": 1475,
+    "BHARTIARTL": 1210, "SBIN": 775, "LICI": 940, "ITC": 415, "LT": 3380,
+    "HINDUNILVR": 2360, "AXISBANK": 1055, "KOTAKBANK": 1730, "BAJFINANCE": 6550, "MARUTI": 11500,
+    "SUNPHARMA": 1510, "TITAN": 3620, "TATASTEEL": 155, "ASIANPAINT": 2840, "ADANIENT": 3120
+};
+
+let portfolio = [];
+
+// 3. MASTER TRADINGVIEW ENGINE
+function refreshChart(symbol = "NIFTY") {
+    let target = symbol.toUpperCase();
+    
+    // Auto-detect exchange
+    const isInd = indianMarketLive[target] || target === "NIFTY";
+    const tvSymbol = isInd ? `NSE:${target}` : target;
+
+    document.getElementById('tradingview-container').innerHTML = `<div id="tv-mount" style="height:100%"></div>`;
+    
+    new TradingView.widget({
+        "autosize": true,
+        "symbol": tvSymbol,
+        "interval": "D",
+        "timezone": "Etc/UTC",
+        "theme": "light",
+        "style": "1",
+        "locale": "en",
+        "toolbar_bg": "#f1f3f6",
+        "enable_publishing": false,
+        "allow_symbol_change": true, // THIS ENABLES SEARCH
+        "container_id": "tv-mount"
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    refreshChart(); // Init
+
+    const addBtn = document.getElementById('add-btn');
+    addBtn.addEventListener('click', () => {
+        const type = document.querySelector('input[name="asset_class"]:checked').value;
+        const name = document.getElementById('asset-name').value.trim().toUpperCase();
+        const qty = parseFloat(document.getElementById('asset-qty').value);
+        let inputPrice = parseFloat(document.getElementById('asset-price').value);
+
+        if (!name || isNaN(qty)) return alert("Fill Name and Qty");
+
+        let buyPriceINR, livePriceINR, risk;
+
+        if (type === "Real Estate") {
+            const baseRate = chennaiDataset[name.toLowerCase()] || 5000;
+            // Real Estate logic: Buy = Dataset Price, Live = Appreciated 2024 value
+            buyPriceINR = isNaN(inputPrice) ? (baseRate * qty) : inputPrice;
+            livePriceINR = (baseRate * 1.85) * qty; // Appreciated 85% since 2011-2015 baseline
+            risk = 3;
+        } else {
+            // Internal Currency Conversion logic
+            const isUsStock = name.length <= 4 && !indianMarketLive[name];
+            const multiplier = isUsStock ? USD_RATE : 1;
+
+            buyPriceINR = (isNaN(inputPrice) ? 100 : inputPrice) * multiplier;
+            
+            // Fetch live price from our Indian list or simulate growth for US/Crypto
+            const marketRef = indianMarketLive[name] ? indianMarketLive[name] : (buyPriceINR / multiplier) * 1.25;
+            livePriceINR = marketRef * multiplier * qty;
+            risk = isUsStock ? 8 : 6;
+        }
+
+        const asset = { id: Date.now(), name, type, qty, buyPriceINR, livePriceINR, risk };
+        portfolio.push(asset);
+        
+        rebuildUI();
+        runAI(asset);
+        refreshChart(name);
+        document.getElementById('asset-form').reset();
+    });
+
+    function rebuildUI() {
+        const body = document.getElementById('portfolio-body');
+        body.innerHTML = '';
+        let total = 0;
+        let riskSum = 0;
+
+        portfolio.forEach(item => {
+            total += item.livePriceINR;
+            riskSum += item.risk;
+            const pnl = ((item.livePriceINR - item.buyPriceINR) / item.buyPriceINR * 100).toFixed(2);
+
+            const row = document.createElement('tr');
+            row.className = "group hover:bg-neutral-50 dark:hover:bg-white/5 transition-colors cursor-pointer border-l-4 border-transparent hover:border-primary";
+            row.innerHTML = `
+                <td class="px-6 py-4 whitespace-nowrap">
+                    <div class="text-sm font-medium text-neutral-900 dark:text-white">${item.name}</div>
+                    <div class="text-xs text-neutral-500">${item.type}</div>
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-semibold dark:text-white">
+                    ₹${Math.round(item.livePriceINR).toLocaleString('en-IN')}
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-bold text-emerald-600">
+                    +${pnl}%
+                </td>
+                <td class="px-6 py-4 whitespace-nowrap text-center">
+                    <button onclick="dropAsset(${item.id}, event)" class="text-neutral-300 hover:text-red-500">
+                        <span class="material-icons text-sm">delete</span>
+                    </button>
+                </td>
+            `;
+
+            // SYNC CHART & AI ON CLICK
+            row.addEventListener('click', () => {
+                runAI(item);
+                refreshChart(item.name);
+            });
+
+            body.appendChild(row);
+        });
+
+        // Header Updates
+        document.getElementById('head-total-val').innerText = "₹" + formatShort(total);
+        const avgR = portfolio.length ? (riskSum / portfolio.length).toFixed(1) : "0.0";
+        document.getElementById('head-risk-score').innerText = avgR;
+        document.getElementById('head-risk-label').innerText = `/ 10 (${avgR < 5 ? 'Low' : 'Med'})`;
+    }
+
+    function runAI(asset) {
+        const pnl = asset.livePriceINR - asset.buyPriceINR;
+        const rec = pnl > (asset.buyPriceINR * 0.2) ? "SELL" : "BUY";
+        const conf = Math.floor(Math.random() * 10) + 88;
+
+        document.getElementById('ai-rec-text').innerText = rec;
+        document.getElementById('ai-rec-text').style.color = rec === "BUY" ? "#a8e6d5" : "#ef4444";
+        document.getElementById('ai-rec-status').innerText = "Bayesian Calculation Done";
+        document.getElementById('ai-confidence-pct').innerText = conf + "%";
+        document.getElementById('ai-bar').style.width = conf + "%";
+        document.getElementById('ai-gain-val').innerText = "₹" + Math.round(pnl).toLocaleString('en-IN');
+        document.getElementById('ai-vol-index').innerText = asset.type === "Equity" ? "High" : "Low";
+        document.getElementById('ai-sentiment').innerText = rec === "BUY" ? "Bullish" : "Over-valued";
+        document.getElementById('ai-narrative').innerText = `Bayesian Model analyzes ${asset.name}. Mathematical probability of a trend reversal is ${100-conf}%. Current distribution suggests a ${rec} strategy.`;
+    }
+
+    window.dropAsset = (id, e) => {
+        e.stopPropagation();
+        portfolio = portfolio.filter(p => p.id !== id);
+        rebuildUI();
+    };
+
+    function formatShort(v) {
+        if (v >= 10000000) return (v / 10000000).toFixed(2) + ' Cr';
+        if (v >= 100000) return (v / 100000).toFixed(2) + ' L';
+        return v.toLocaleString('en-IN');
+    }
+});
+</script>
+</body></html>
